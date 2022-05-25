@@ -76,5 +76,8 @@
   "lint-staged": {
     "src/**/*.{ts,js}": "eslint --fix",
     "src/**/*.{ts,js,md}": "prettier --write"
+  },
+  "engines": {
+    "node": "16.15"
   }
 }
