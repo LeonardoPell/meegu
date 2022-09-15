@@ -4,7 +4,6 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 import * as moment from 'moment';
-import { firstValueFrom } from 'rxjs';
 import { AdressService } from 'src/core/services/adress.service';
 
 @Injectable()
@@ -21,9 +20,7 @@ export class UsersService {
       return validate;
     }
 
-    const adressInfo = await firstValueFrom(
-      this._adressService.getAdressInfo(data.zipcode),
-    );
+    const adressInfo = await this._adressService.getAdressInfo(data.zipcode);
 
     data.city = adressInfo.data.localidade;
     data.neighborhood = adressInfo.data.bairro;
@@ -87,10 +84,7 @@ export class UsersService {
     }
 
     if (data.zipcode) {
-      const adressInfo = await firstValueFrom(
-        this._adressService.getAdressInfo(data.zipcode),
-      );
-
+      const adressInfo = await this._adressService.getAdressInfo(data.zipcode);
       data.city = adressInfo.data.localidade;
       data.neighborhood = adressInfo.data.bairro;
       data.state = adressInfo.data.uf;
