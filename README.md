@@ -1,4 +1,4 @@
-Projeto criado para empresa MEEGU, para teste de conhecimento de senioridade.
+Projeto criado para teste de conhecimento de senioridade.
 
 É necessário ter o node,nest,docker e docker-compose instalado.
 
